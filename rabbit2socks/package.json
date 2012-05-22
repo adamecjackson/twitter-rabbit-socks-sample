@@ -4,6 +4,6 @@
   { "rabbit.js" : "~0.2.0"
   , "sockjs" : "~0.3.1"
   , "express": "~2.5.9"
-  , "cloudfoundry": "~0.0.1"
+  , "cf-runtime": "~0.0.1"
   }
 }

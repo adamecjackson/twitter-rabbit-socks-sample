@@ -1,4 +1,5 @@
-var cloudfoundry = require('cloudfoundry');
+var cf = require('cf-runtime')
+var cloudapp = cf.CloudApp
 var express = require('express');
 var sockjs = require('sockjs');
 
@@ -15,7 +16,7 @@ var sockjs_opts = {sockjs_url: "http://sockjs.github.com/sockjs-client/sockjs-la
 var sjs = sockjs.createServer(sockjs_opts);
 sjs.installHandlers(app, {prefix: '[/]socks'});
 
-var rabbitUrl = cloudfoundry.getServiceConfig("twitter-rabbit").url;
+var rabbitUrl = cloudapp.serviceProps["twitter-rabbit"].url;
 var context = require('rabbit.js').createContext(rabbitUrl);
 
 context.on('ready', function() {
@@ -38,4 +39,4 @@ app.get('/', function(req, res) {
   res.sendfile(__dirname + '/public/index.html');
 });
 
-app.listen(cloudfoundry.getAppPort());
+app.listen(cloudapp.port);
