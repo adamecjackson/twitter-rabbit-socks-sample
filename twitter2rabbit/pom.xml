@@ -44,7 +44,6 @@
                     </additionalBuildcommands>
                     <downloadSources>true</downloadSources>
                     <downloadJavadocs>true</downloadJavadocs>
-                    <wtpversion>1.5</wtpversion>
                 </configuration>
             </plugin>
             <plugin>
